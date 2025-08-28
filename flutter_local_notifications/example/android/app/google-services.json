@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "664169078353",
+    "project_id": "daily-horoscope-dev-753be",
+    "storage_bucket": "daily-horoscope-dev-753be.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664169078353:android:efc58e059a1bb6bb72a270",
+        "android_client_info": {
+          "package_name": "com.dexterous.flutter_local_notifications_example"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8BcH2cocJCINjYwKNIs_okUgkYt7tEE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664169078353:android:4a6b4fa631bf302172a270",
+        "android_client_info": {
+          "package_name": "com.example.dailyhoroscope.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8BcH2cocJCINjYwKNIs_okUgkYt7tEE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

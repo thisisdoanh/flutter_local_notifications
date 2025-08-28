@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
@@ -14,6 +15,7 @@ List<Widget> examples(BuildContext context) => <Widget>[
       PaddedElevatedButton(
         buttonText: 'Repeat notification every minute',
         onPressed: () async {
+          FirebaseAnalytics.instance.logEvent(name: 'repeat_notification_on_pressed');
           await _repeatNotification();
         },
       ),

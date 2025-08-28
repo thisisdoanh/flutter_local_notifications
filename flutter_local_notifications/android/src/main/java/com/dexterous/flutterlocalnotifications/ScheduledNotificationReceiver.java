@@ -66,7 +66,10 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
         }
 
         Log.d(TAG, "Scheduled notification fired");
-        ScheduledNotificationHolder.scheduledNotification.onNotificationFired();
-
+        if (ScheduledNotificationHolder.scheduledNotification != null) {
+            ScheduledNotificationHolder.scheduledNotification.onNotificationFired();
+        } else {
+            Log.w(TAG, "No ScheduledNotificationITF implementation set, skipping onNotificationFired");
+        }
     }
 }

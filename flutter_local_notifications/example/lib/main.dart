@@ -5,6 +5,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -82,6 +83,13 @@ void notificationTapBackground(NotificationResponse notificationResponse) {
 Future<void> main() async {
   // needed if you intend to initialize in the `main` function
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: 'AIzaSyC8BcH2cocJCINjYwKNIs_okUgkYt7tEE4',
+          appId: '1:664169078353:android:efc58e059a1bb6bb72a270',
+          messagingSenderId: '664169078353',
+          projectId: 'daily-horoscope-dev-753be'));
 
   await _configureLocalTimeZone();
 

@@ -1,8 +1,17 @@
 package com.dexterous.flutter_local_notifications_example
 
+import android.app.Application
 import android.content.ContentResolver
 import android.content.Context
 import android.media.RingtoneManager
+import android.os.Bundle
+import android.util.Log
+import com.dexterous.flutterlocalnotifications.ScheduledNotificationHolder
+import com.dexterous.flutterlocalnotifications.ScheduledNotificationITF
+import com.google.firebase.Firebase
+import com.google.firebase.FirebaseApp
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.analytics
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -32,3 +41,34 @@ class MainActivity: FlutterActivity() {
                 + context.resources.getResourceEntryName(resId))
     }
 }
+
+class App : Application() {
+
+    companion object {
+        var instance: App? = null
+        private val analytics: FirebaseAnalytics by lazy {
+            Firebase.analytics
+        }
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        instance = this
+        // Init Firebase
+        FirebaseApp.initializeApp(this)
+
+
+        ScheduledNotificationHolder.scheduledNotification = ScheduledNotificationITF {
+
+            Log.d("Abc", "Logging event from ScheduledNotificationHolder")
+
+            val bundle = Bundle().apply {
+                putString("zodiac", "aries")
+                putString("source", "home_screen")
+                putLong("ts", System.currentTimeMillis())
+            }
+            App.analytics.logEvent("open_horoscope", bundle)
+        }
+    }
+}
+
